@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shopperista/providers/product.dart';
+import 'package:shopperista/models/product.dart';
+
 import 'package:shopperista/screens/product_detail.dart';
 
 class ProductItem extends StatelessWidget {

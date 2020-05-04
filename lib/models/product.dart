@@ -1,5 +1,27 @@
-import 'package:flutter/material.dart';
-import 'package:shopperista/providers/product.dart';
+import 'package:flutter/foundation.dart';
+
+class Product with ChangeNotifier {
+  final String id;
+  final String title;
+  final String description;
+  final double price;
+  final String imageUrl;
+  bool isFavorite;
+
+  Product({
+    @required this.id,
+    @required this.title,
+    @required this.description,
+    @required this.price,
+    @required this.imageUrl,
+    this.isFavorite = false,
+  });
+
+  void toggleFavoriteStatus() {
+    isFavorite = !isFavorite;
+    notifyListeners();
+  }
+}
 
 class Products with ChangeNotifier {
   List<Product> _items = [
@@ -39,6 +61,10 @@ class Products with ChangeNotifier {
 
   List<Product> get items {
     return [..._items];
+  }
+
+  List<Product> get favoritItems {
+    return _items.where((item) => item.isFavorite).toList();
   }
 
   Product findById(String productID) {

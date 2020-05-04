@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shopperista/providers/products.dart';
+import 'package:shopperista/models/product.dart';
 import 'package:shopperista/widgets/product_item.dart';
 
 class ProductGrid extends StatelessWidget {
+  final bool showFavorit;
+
+  ProductGrid(this.showFavorit);
+
   @override
   Widget build(BuildContext context) {
     final productsData = Provider.of<Products>(context);
-    final products = productsData.items;
+    final products =
+        showFavorit ? productsData.favoritItems : productsData.items;
 
     return GridView.builder(
       padding: const EdgeInsets.all(10.0),
