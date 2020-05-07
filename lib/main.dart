@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shopperista/models/cart.dart';
 import 'package:shopperista/models/product.dart';
+import 'package:shopperista/screens/cart.dart';
 import 'package:shopperista/screens/product_detail.dart';
 import 'package:shopperista/screens/products_overview.dart';
 
@@ -25,8 +26,9 @@ class MyApp extends StatelessWidget {
         ),
         initialRoute: ProductOverviewScreen.routeName,
         routes: {
-          ProductOverviewScreen.routeName: (ctx) => ProductOverviewScreen(),
-          ProductDetailScreen.routeName: (ctx) => ProductDetailScreen(),
+          ProductOverviewScreen.routeName: (_) => ProductOverviewScreen(),
+          ProductDetailScreen.routeName: (_) => ProductDetailScreen(),
+          CartScreen.routeName: (_) => CartScreen(),
         },
       ),
     );

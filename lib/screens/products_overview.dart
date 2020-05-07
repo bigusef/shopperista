@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shopperista/models/cart.dart';
+import 'package:shopperista/screens/cart.dart';
 import 'package:shopperista/widgets/badge.dart';
 import 'package:shopperista/widgets/products_grid.dart';
 
@@ -54,7 +55,9 @@ class _ProductOverviewScreenState extends State<ProductOverviewScreen> {
               icon: Icon(
                 Icons.shopping_cart,
               ),
-              onPressed: null,
+              onPressed: () => Navigator.of(context).pushNamed(
+                CartScreen.routeName,
+              ),
             ),
           )
         ],
